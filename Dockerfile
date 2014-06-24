@@ -9,13 +9,15 @@ MAINTAINER blag "drew.hubl@gmail.com"
 RUN useradd -m elasticsearch
 # Make the data directory
 RUN mkdir -p /data/elasticsearch/shared
-RUN mkdir -p /usr/share/elasticsearch/plugins
 RUN chown -R elasticsearch:elasticsearch /data/elasticsearch/shared
+RUN mkdir -p /usr/share/elasticsearch/plugins
+RUN ls -l /usr/share/elasticsearch
+RUN chown -R elasticsearch:elasticsearch /usr/share/elasticsearch/plugins
 # Install prerequisites for installing elasticsearch
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl sudo
 # Add the elasticsearch repository
 RUN curl http://packages.elasticsearch.org/GPG-KEY-elasticsearch | apt-key add -
-RUN echo "deb http://packages.elasticsearch.org/elasticsearch/0.90/debian stable main" >> /etc/apt/sources.list
+RUN echo "deb http://packages.elasticsearch.org/elasticsearch/1.2/debian stable main" >> /etc/apt/sources.list
 # Update apt database
 RUN apt-get -qq update
 # Actually install elasticsearch
@@ -32,8 +34,6 @@ USER elasticsearch
 # Set the elasticsearch version
 ENV VERSION 1.2.1
 # Install Logstash?
-RUN ls -l /usr/share/elasticsearch
-RUN chown -R elasticsearch:elasticsearch /usr/share/elasticsearch/plugins
 RUN /usr/share/elasticsearch/bin/plugin -i mobz/elasticsearch-head
 # Export port 9200
 EXPOSE 9200
