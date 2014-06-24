@@ -39,11 +39,12 @@ USER elasticsearch
 ENV VERSION 1.2.1
 # Install Logstash?
 RUN /usr/share/elasticsearch/bin/plugin -i mobz/elasticsearch-head
-RUN chown -R root:root /usr/share/elasticsearch/plugins
 
 # Export port 9200
 EXPOSE 9200
+
 # Run all further commands, and all commands in the live image, as root
 USER root
+RUN chown -R root:root /usr/share/elasticsearch/plugins
 
 ENTRYPOINT /run.sh
