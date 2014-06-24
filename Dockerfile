@@ -9,6 +9,7 @@ MAINTAINER blag "drew.hubl@gmail.com"
 RUN useradd -m elasticsearch
 # Make the data directory
 RUN mkdir -p /data/elasticsearch/shared
+RUN mkdir -p /usr/share/elasticsearch/plugins
 RUN chown -R elasticsearch:elasticsearch /data/elasticsearch/shared
 # Install prerequisites for installing elasticsearch
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl sudo
@@ -31,7 +32,6 @@ USER elasticsearch
 # Set the elasticsearch version
 ENV VERSION 1.2.1
 # Install Logstash?
-RUN mkdir -p /usr/share/elasticsearch/plugins
 RUN ls -l /usr/share/elasticsearch
 RUN chown -R elasticsearch:elasticsearch /usr/share/elasticsearch/plugins
 RUN /usr/share/elasticsearch/bin/plugin -i mobz/elasticsearch-head
