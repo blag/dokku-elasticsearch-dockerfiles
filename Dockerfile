@@ -31,6 +31,7 @@ USER elasticsearch
 # Set the elasticsearch version
 ENV VERSION 1.2.1
 # Install Logstash?
+RUN mkdir -p /usr/share/elasticsearch/plugins
 RUN ls -l /usr/share/elasticsearch
 RUN chown -R elasticsearch:elasticsearch /usr/share/elasticsearch/plugins
 RUN /usr/share/elasticsearch/bin/plugin -i mobz/elasticsearch-head
