@@ -2,7 +2,7 @@
 #
 # Version 0.2-blag
 
-FROM jezdez/elasticsearch
+FROM charliek/openjdk-jre-7
 MAINTAINER blag "drew.hubl@gmail.com"
 
 # Create the elasticsearch user
