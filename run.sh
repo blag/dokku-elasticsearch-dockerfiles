@@ -140,4 +140,5 @@ if [ -n "$MAX_MAP_COUNT" ]; then
 fi
 
 # Start Daemon
-exec sudo -u $ES_USER $DAEMON -f $DAEMON_OPTS
+echo $DAEMON
+exec sudo -u $ES_USER $DAEMON $DAEMON_OPTS
