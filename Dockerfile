@@ -46,5 +46,3 @@ EXPOSE 9200
 # Run all further commands, and all commands in the live image, as root
 USER root
 RUN chown -R root:root /usr/share/elasticsearch/plugins
-
-ENTRYPOINT /run.sh
