@@ -28,6 +28,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y elasticsearch
 ADD elasticsearch.conf /etc/security/limits.conf
 # Add the su command
 ADD su /etc/pam.d/su
+RUN ls /etc
 ADD elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
 # Add VOLUMEs to allow users to change the configuration
 VOLUME ["/etc/elasticsearch", "/data/elasticsearch/shared"]
