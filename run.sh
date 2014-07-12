@@ -94,6 +94,11 @@ if [ -f "$DEFAULT" ]; then
     . "$DEFAULT"
 fi
 
+# Copy the configuration file
+if [ ! -f "$CONF_FILE" ]; then
+    cp "$DEFAULT/elasticsearch.yml" "$CONF_DIR/"
+fi
+
 # Define other required variables
 PID_FILE=/var/run/$NAME.pid
 DAEMON=$ES_HOME/bin/elasticsearch
