@@ -85,7 +85,7 @@ CONF_DIR=/etc/$NAME
 CONF_FILE=$CONF_DIR/elasticsearch.yml
 
 # Maximum number of VMA (Virtual Memory Areas) a process can own
-MAX_MAP_COUNT=65535
+MAX_MAP_COUNT=1048575
 
 # End of variables that can be overwritten in $DEFAULT
 
