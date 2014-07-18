@@ -47,6 +47,9 @@ RUN /usr/share/elasticsearch/bin/plugin -i mobz/elasticsearch-head
 EXPOSE 9200
 
 # Run all further commands, and all commands in the live image, as root
+USER root
 RUN chown -R root:root /usr/share/elasticsearch/plugins
+
+USER elasticsearch
 
 CMD ["/run.sh"]
