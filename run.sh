@@ -24,18 +24,16 @@ NAME=elasticsearch
 DESC="ElasticSearch Server"
 DEFAULT=/etc/default/$NAME
 
-if [ `id -u` -ne 0 ]; then
+if [ $(id -u) -ne 0 ]; then
     echo "You need root privileges to run this script"
-    exit 1
+    echo "You are currently running as" $(whoami)
 fi
-
 
 . /lib/lsb/init-functions
 
 if [ -r /etc/default/rcS ]; then
     . /etc/default/rcS
 fi
-
 
 # The following variables can be overwritten in $DEFAULT
 
