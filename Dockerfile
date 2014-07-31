@@ -30,7 +30,7 @@ ADD elasticsearch.conf /etc/security/limits.conf
 ADD su /etc/pam.d/su
 ADD elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
 # Add VOLUMEs to allow users to change the configuration
-VOLUME ["/data/elasticsearch/shared", "/etc/elasticsearch"]
+VOLUME ["/data/elasticsearch/shared"]
 
 # Add the entrypoint script and ensure it is executable
 ADD run.sh /run.sh
