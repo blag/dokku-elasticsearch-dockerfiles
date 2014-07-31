@@ -28,8 +28,9 @@ if [ $(id -u) -ne 0 ]; then
     if [[ ! -d "/data/elasticsearch/data/logs" ]]; then
         mkdir -p /data/elasticsearch/data/logs
     fi
-    echo "You need root privileges to run this script" >> /data/elasticsearch/data/logs/run.sh.log
-    echo "You are currently running as" $(whoami) >> /data/elasticsearch/data/logs/run.sh.log
+    echo "You need root privileges to run this script" >&2
+    echo "You are currently running as" $(whoami) >&2
+    exit -1
 fi
 
 . /lib/lsb/init-functions
