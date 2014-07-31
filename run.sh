@@ -25,8 +25,11 @@ DESC="ElasticSearch Server"
 DEFAULT=/etc/default/$NAME
 
 if [ $(id -u) -ne 0 ]; then
-    echo "You need root privileges to run this script"
-    echo "You are currently running as" $(whoami)
+    if [[ ! -d "/data/elasticsearch/data/logs" ]]; then
+        mkdir -p /data/elasticsearch/data/logs
+    fi
+    echo "You need root privileges to run this script" >> /data/elasticsearch/data/logs/run.sh.log
+    echo "You are currently running as" $(whoami) >> /data/elasticsearch/data/logs/run.sh.log
 fi
 
 . /lib/lsb/init-functions
