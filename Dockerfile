@@ -50,6 +50,4 @@ EXPOSE 9200
 USER root
 RUN chown -R root:root /usr/share/elasticsearch/plugins
 
-USER elasticsearch
-
 CMD ["/run.sh"]
