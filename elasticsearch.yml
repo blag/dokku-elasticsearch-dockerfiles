@@ -39,6 +39,8 @@ cluster.name: dokku
 #
 #node.name: "Franz Kafka"
 
+node.local: true
+
 # Every node can be configured to allow or deny being eligible as the master,
 # and to allow or deny to store the data.
 #
