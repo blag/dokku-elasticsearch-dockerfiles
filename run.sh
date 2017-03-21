@@ -24,7 +24,7 @@ NAME=elasticsearch
 DESC="ElasticSearch Server"
 DEFAULT=/etc/default/$NAME
 
-if [ $(whoami) -ne "root" ]; then
+if [ $(whoami) != "root" ]; then
     echo "You need root privileges to run this script (you are running as "$(whoami)")"
     exit 1
 fi
